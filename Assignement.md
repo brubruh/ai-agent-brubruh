@@ -44,11 +44,11 @@ Select ONE of the datasets in the Data Management Plan submitted for T2 and crea
 2. Extract and print just the holiday names and dates
 3. Create a summary comparing holiday counts by country
 
-**Deliverable 2:** 
-    on github repo:
-    - Working code files for both exercises
-    on brightspace:
-    - Brief reflection (1 paragraph) on what you learned about APIs
+**Deliverable 2:**  
+on github repo:
+- Working code files for both exercises
+on brightspace:
+- Brief reflection (1 paragraph) on what you learned about APIs
 
 ---
 
@@ -57,11 +57,11 @@ Select ONE of the datasets in the Data Management Plan submitted for T2 and crea
 ### API Key Security Best Practices:
 
 **Deliverable 3:**
-    on brightspace:
-    - Screenshot showing successful API key creation
-    on github repo:
-    - Test script that successfully calls your chosen API
-    - Config file template (with fake keys as examples)
+on brightspace:
+- Screenshot showing successful API key creation
+on github repo:
+- Test script that successfully calls your chosen API
+- Config file template (with fake keys as examples)
 
 ---
 
@@ -77,12 +77,11 @@ Your agent must include these components:
  5. Respectful Collection
 
 **Deliverable 4:**
-
-    on github repo:
-    - Complete Python agent class (well-commented)
-    - Configuration file based on your DMP
-    - Test results showing the agent successfully collecting data
-    - Log file showing respectful collection practices
+on github repo:
+- Complete Python agent class (well-commented)
+- Configuration file based on your DMP
+- Test results showing the agent successfully collecting data
+- Log file showing respectful collection practices
 
 ---
 
@@ -107,12 +106,12 @@ Your agent should produce a final summary including:
 - Recommendations for future collection
 
 **Deliverable 5:**
-    on github:
-    - Automated metadata file
-    - Collection summary document
-    on brightspace:
-    - Quality assessment report  
-    - Screenshots of your agent running
+on github:
+- Automated metadata file
+- Collection summary document
+on brightspace:
+- Quality assessment report  
+- Screenshots of your agent running
 
 ---
 
