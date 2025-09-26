@@ -85,7 +85,20 @@ Your agent must include these components:
     - Log file showing respectful collection practices
 
 ---
-#### 3. Collection Summary
+
+## Part 5: Documentation (20 pts)
+
+
+Required Documentation Features:
+1. Automated Metadata Generation
+2. Quality Report Generation
+3. Collection Summary
+
+Quality Report should contain:
+- total number of records
+- collection success rate
+- quality score (metrics such as accuracy, completeness, consistency, and/or validity which you choose will depend on your data plan)
+        
 Your agent should produce a final summary including:
 - Total data points collected
 - Success/failure rates by API
