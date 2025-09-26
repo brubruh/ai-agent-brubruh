@@ -108,7 +108,7 @@ Your agent should produce a final summary including:
 **Deliverable 5:**
 on github:
 - Automated metadata file
-- Collection summary document
+- Collection summary document  
 on brightspace:
 - Quality assessment report  
 - Screenshots of your agent running
