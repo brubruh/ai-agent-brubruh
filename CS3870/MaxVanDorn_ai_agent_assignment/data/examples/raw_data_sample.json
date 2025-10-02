@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "description": "Example of raw data as received from API",
+    "created_at": "2025-10-01T20:46:46.717852",
+    "type": "raw_example"
+  },
+  "data": {
+    "items": [
+      {
+        "name": "Knight",
+        "id": 26000000,
+        "maxLevel": 13,
+        "maxEvolutionLevel": 1,
+        "elixirCost": 3,
+        "type": "Troop",
+        "rarity": "Common",
+        "arena": 0,
+        "description": "A tough melee fighter. The Barbarian's handsome, cultured cousin. Rumor has it that he was knighted based on the sheer awesomeness of his mustache alone.",
+        "sc_key": "knight",
+        "iconUrls": {
+          "medium": "https://api-assets.clashroyale.com/cards/300/STTQ8322DD2Z8QJ2VL3S7R4LKC1XN2QV.png",
+          "evolutionMedium": "https://api-assets.clashroyale.com/cards/300/STTQ8322DD2Z8QJ2VL3S7R4LKC1XN2QV_EVO.png"
+        }
+      },
+      {
+        "name": "Archers",
+        "id": 26000001,
+        "maxLevel": 13,
+        "maxEvolutionLevel": 1,
+        "elixirCost": 3,
+        "type": "Troop",
+        "rarity": "Common",
+        "arena": 0,
+        "description": "A pair of lightly armored ranged attackers. They'll help you take down ground and air units, but you're on your own with hair coloring advice.",
+        "sc_key": "archers",
+        "iconUrls": {
+          "medium": "https://api-assets.clashroyale.com/cards/300/1ArIcOUX_VDYVLRjZ5Q3qUOH7a5xPYK6.png",
+          "evolutionMedium": "https://api-assets.clashroyale.com/cards/300/1ArIcOUX_VDYVLRjZ5Q3qUOH7a5xPYK6_EVO.png"
+        }
+      }
+    ],
+    "supportItems": []
+  }
+}

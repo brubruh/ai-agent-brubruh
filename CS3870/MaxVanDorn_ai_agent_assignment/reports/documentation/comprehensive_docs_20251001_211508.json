@@ -1,0 +1,264 @@
+{
+  "metadata": {
+    "generated_at": "2025-10-01T21:15:08.005174",
+    "agent_version": "1.0",
+    "documentation_version": "1.0"
+  },
+  "collection_summary": {
+    "collection_stats": {
+      "total_requests": 5,
+      "successful_requests": 5,
+      "failed_requests": 0,
+      "data_quality_score": 0
+    },
+    "data_quality_score": 0.6875,
+    "total_items_collected": 1,
+    "success_rate": 1.0,
+    "collection_duration": "0:00:00.000593",
+    "configuration_used": "ClashRoyaleDataAgent",
+    "data_storage": {
+      "raw_data_location": "../data/raw",
+      "processed_data_location": "../data/processed",
+      "reports_location": "../reports"
+    }
+  },
+  "data_schema": {
+    "raw_data_schema": {
+      "description": "Schema of raw data as received from API",
+      "fields": {
+        "name": {
+          "type": "string",
+          "description": "Card name",
+          "required": true
+        },
+        "id": {
+          "type": "integer",
+          "description": "Unique card identifier",
+          "required": true
+        },
+        "elixirCost": {
+          "type": "integer",
+          "description": "Elixir cost to play card",
+          "required": true
+        },
+        "maxLevel": {
+          "type": "integer",
+          "description": "Maximum upgrade level",
+          "required": false
+        },
+        "rarity": {
+          "type": "string",
+          "description": "Card rarity (common, rare, epic, legendary)",
+          "required": true
+        },
+        "iconUrls": {
+          "type": "object",
+          "description": "URLs for card images",
+          "required": false
+        }
+      }
+    },
+    "processed_data_schema": {
+      "description": "Schema of processed, cleaned data",
+      "fields": {
+        "name": {
+          "type": "str",
+          "sample_value": "Knight",
+          "description": "Processed field: name"
+        },
+        "elixir_cost": {
+          "type": "int",
+          "sample_value": 3,
+          "description": "Processed field: elixir_cost"
+        },
+        "rarity": {
+          "type": "str",
+          "sample_value": "common",
+          "description": "Processed field: rarity"
+        },
+        "collected_at": {
+          "type": "str",
+          "sample_value": "2025-10-01T20:00:00",
+          "description": "Processed field: collected_at"
+        },
+        "data_quality_score": {
+          "type": "float",
+          "sample_value": 1.0,
+          "description": "Processed field: data_quality_score"
+        }
+      }
+    },
+    "data_quality_fields": {
+      "collected_at": {
+        "type": "datetime",
+        "description": "Timestamp when data was collected"
+      },
+      "data_quality_score": {
+        "type": "float",
+        "description": "Overall quality score (0-1)"
+      }
+    }
+  },
+  "api_documentation": {
+    "api_endpoint": "https://api.clashroyale.com/v1/cards",
+    "authentication": "Bearer token (JWT)",
+    "rate_limits": {
+      "requests_per_minute": 30,
+      "burst_limit": 10
+    },
+    "response_format": "JSON",
+    "typical_response_size": "121 items per request",
+    "cache_duration": "60 seconds (from API headers)",
+    "error_codes": {
+      "200": "Success",
+      "401": "Invalid or missing API key",
+      "403": "Access forbidden (check API key permissions)",
+      "429": "Rate limit exceeded",
+      "500": "Server error"
+    },
+    "request_headers": {
+      "Authorization": "Bearer {api_key}",
+      "Accept": "application/json",
+      "User-Agent": "DataCollectionAgent/1.0"
+    }
+  },
+  "data_transformations": {
+    "transformation_pipeline": [
+      {
+        "step": 1,
+        "name": "Raw Data Extraction",
+        "description": "Extract items array from API response",
+        "input": "Full API response object",
+        "output": "Array of card objects"
+      },
+      {
+        "step": 2,
+        "name": "Field Mapping",
+        "description": "Map API fields to standardized names",
+        "transformations": {
+          "elixirCost": "elixir_cost",
+          "maxLevel": "max_level",
+          "maxEvolutionLevel": "is_evolution_available (boolean)"
+        }
+      },
+      {
+        "step": 3,
+        "name": "Data Enrichment",
+        "description": "Add metadata and calculated fields",
+        "added_fields": [
+          "collected_at (timestamp)",
+          "data_quality_score (calculated)",
+          "processing_version"
+        ]
+      },
+      {
+        "step": 4,
+        "name": "Validation",
+        "description": "Validate against required fields and data types",
+        "validation_rules": [
+          "name",
+          "elixirCost",
+          "rarity"
+        ]
+      }
+    ],
+    "data_quality_checks": {
+      "completeness": "Check all required fields are present",
+      "accuracy": "Validate data types and ranges",
+      "consistency": "Check for consistent formats",
+      "timeliness": "Verify data freshness"
+    }
+  },
+  "quality_metrics": {
+    "overall_score": 0.6875,
+    "quality_dimensions": {
+      "completeness": {
+        "score": 0.0,
+        "description": "Percentage of records with all required fields",
+        "threshold": 0.8
+      },
+      "accuracy": {
+        "score": 0.9,
+        "description": "Data correctness and validity",
+        "threshold": 0.9
+      },
+      "consistency": {
+        "score": 0.85,
+        "description": "Data format and type consistency"
+      },
+      "timeliness": {
+        "score": 1.0,
+        "description": "Data freshness and currency",
+        "max_age_hours": 24
+      }
+    },
+    "collection_metrics": {
+      "success_rate": 1.0,
+      "total_requests": 5,
+      "failed_requests": 0,
+      "items_collected": 1
+    }
+  },
+  "usage_guide": {
+    "quick_start": {
+      "installation": [
+        "pip install requests",
+        "Configure API key in config.json",
+        "Run: python data_collection_agent.py"
+      ],
+      "configuration": "Edit config.json to customize collection parameters",
+      "testing": "Run: python test_connectivity.py to verify API access"
+    },
+    "configuration_options": {
+      "agent_settings": {
+        "max_requests": "Maximum number of API calls per session",
+        "base_delay": "Delay between requests (seconds)",
+        "timeout": "Request timeout (seconds)"
+      },
+      "data_quality": {
+        "required_fields": "Fields that must be present for valid data",
+        "min_completeness": "Minimum completeness threshold (0-1)",
+        "min_accuracy": "Minimum accuracy threshold (0-1)"
+      }
+    },
+    "output_files": {
+      "raw_data": "Unprocessed API responses in data/raw/",
+      "processed_data": "Cleaned and validated data in data/processed/",
+      "reports": "Collection reports and documentation in reports/",
+      "logs": "Execution logs for debugging"
+    },
+    "common_issues": {
+      "403_forbidden": "Check API key validity and permissions",
+      "rate_limiting": "Increase delays in configuration",
+      "validation_errors": "Review required_fields in config.json"
+    }
+  },
+  "data_catalog": {
+    "datasets": {
+      "raw_data": {
+        "location": "../data/raw",
+        "file_count": 9,
+        "latest_file": "cards_20251001_211409_raw.json",
+        "description": "Unprocessed API responses with full metadata"
+      },
+      "processed_data": {
+        "location": "../data/processed",
+        "file_count": 0,
+        "latest_file": null,
+        "description": "Cleaned and validated data ready for analysis"
+      }
+    },
+    "data_lineage": {
+      "source": "Clash Royale API (api.clashroyale.com)",
+      "collection_method": "Automated agent with rate limiting",
+      "processing_steps": "Raw → Validation → Transformation → Storage",
+      "update_frequency": "On-demand via agent execution"
+    },
+    "data_governance": {
+      "retention_policy": "Raw data retained indefinitely for reprocessing",
+      "access_control": "File system permissions",
+      "backup_strategy": "Raw data serves as backup",
+      "privacy_considerations": "Public game data, no personal information"
+    }
+  }
+}

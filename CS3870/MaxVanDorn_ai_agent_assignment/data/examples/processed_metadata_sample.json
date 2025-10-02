@@ -1,0 +1,103 @@
+{
+  "collection_info": {
+    "collected_at": "2025-10-01T21:19:21.287758",
+    "collection_date": "2025-10-01",
+    "collection_time": "21:19:21",
+    "utc_offset": "-1 day, 20:00:00"
+  },
+  "source_info": {
+    "api_endpoint": "https://api.clashroyale.com/v1/cards",
+    "api_version": "v1",
+    "source_system": "clash_royale_api",
+    "data_provider": "Supercell",
+    "dataset_name": "demo_cards"
+  },
+  "agent_info": {
+    "agent_name": "ClashRoyaleDataAgent",
+    "agent_version": "1.0",
+    "collection_session": "session_20251001_211921",
+    "configuration_hash": "bb15595f"
+  },
+  "system_info": {
+    "platform": "Windows",
+    "platform_version": "10.0.26100",
+    "python_version": "3.13.7",
+    "hostname": "PCS",
+    "architecture": "64bit"
+  },
+  "data_characteristics": {
+    "data_type": "processed",
+    "format": "json",
+    "encoding": "utf-8",
+    "total_items": 2,
+    "data_size_bytes": 249,
+    "data_fingerprint": "b4226136945f64c89e89873c094f887c",
+    "schema_version": "1.0"
+  },
+  "quality_info": {
+    "collection_success_rate": 1.0,
+    "total_requests_made": 0,
+    "data_completeness_score": 0,
+    "validation_passed": true,
+    "quality_checks_performed": "2025-10-01T21:19:21.287758"
+  },
+  "schema_info": {
+    "field_count": 5,
+    "fields": {
+      "name": {
+        "type": "str",
+        "sample_value": "Knight",
+        "is_required": true
+      },
+      "elixir_cost": {
+        "type": "int",
+        "sample_value": 3,
+        "is_required": false
+      },
+      "rarity": {
+        "type": "str",
+        "sample_value": "common",
+        "is_required": true
+      },
+      "collected_at": {
+        "type": "str",
+        "sample_value": "2025-10-01T21:30:00",
+        "is_required": false
+      },
+      "data_quality_score": {
+        "type": "float",
+        "sample_value": 1.0,
+        "is_required": false
+      }
+    },
+    "required_fields": [
+      "name",
+      "elixirCost",
+      "rarity"
+    ],
+    "nullable_fields": [
+      "elixir_cost",
+      "collected_at",
+      "data_quality_score"
+    ]
+  },
+  "lineage_info": {
+    "data_source": "api_collection",
+    "processing_stage": "processed",
+    "parent_datasets": [
+      "clash_royale_api_raw"
+    ],
+    "collection_method": "automated_agent",
+    "next_processing_steps": [
+      "analysis",
+      "reporting"
+    ]
+  },
+  "usage_info": {
+    "intended_use": "game_data_analysis",
+    "access_level": "internal",
+    "retention_period": "indefinite",
+    "update_frequency": "on_demand",
+    "last_modified": "2025-10-01T21:19:21.287758"
+  }
+}

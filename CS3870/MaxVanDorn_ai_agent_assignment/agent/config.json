@@ -1,0 +1,48 @@
+{
+  "agent_settings": {
+    "name": "ClashRoyaleDataAgent",
+    "max_requests": 100,
+    "base_delay": 1.0,
+    "timeout": 10,
+    "retry_attempts": 3
+  },
+  "api_settings": {
+    "primary_api": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjllNTM0NmM0LTU4NGQtNDA0Ni1iNzRhLWQ3OTcwMmJlMjNmYiIsImlhdCI6MTc1OTM2NTEwMSwic3ViIjoiZGV2ZWxvcGVyL2ZmNWI3Y2UwLWM5NzctNzVlYy1lMGI2LTk5ZDJhMjM5YjFmZiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI2NS4xODMuMTMwLjMiXSwidHlwZSI6ImNsaWVudCJ9XX0.4EtHKGdYtRNMwvOmSxDTnlxdYAz22_Bla53dXHJ3klcwHa1l1XF-ti2G2O-qbPrPY7aReU4KqtzeHJAc_cwQGA",
+    "fallback_apis": ["alternative_game_api"],
+    "rate_limit_per_minute": 30,
+    "burst_limit": 10
+  },
+  "data_quality": {
+    "min_completeness": 0.8,
+    "min_accuracy": 0.9,
+    "max_age_hours": 24,
+    "required_fields": ["name", "elixirCost", "rarity"]
+  },
+  "collection_targets": {
+    "cards": {
+      "endpoint": "/v1/cards",
+      "target_count": 100,
+      "priority": "high"
+    },
+    "player_stats": {
+      "endpoint": "/v1/players",
+      "target_count": 50,
+      "priority": "medium"
+    }
+  },
+  "storage": {
+    "base_path": "../data",
+    "raw_data_path": "../data/raw",
+    "processed_data_path": "../data/processed",
+    "reports_path": "../reports",
+    "output_format": "json",
+    "backup_enabled": true,
+    "compression": false,
+    "filename_template": "{dataset}_{timestamp}_{type}.json"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "data_collection.log",
+    "max_size_mb": 10
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "collection_info": {
+    "collected_at": "2025-10-01T21:20:29.159056",
+    "collection_date": "2025-10-01",
+    "collection_time": "21:20:29",
+    "utc_offset": "-1 day, 20:00:00"
+  },
+  "source_info": {
+    "api_endpoint": "https://api.clashroyale.com/v1/cards",
+    "api_version": "v1",
+    "source_system": "clash_royale_api",
+    "data_provider": "Supercell",
+    "dataset_name": "test_metadata_demo"
+  },
+  "agent_info": {
+    "agent_name": "ClashRoyaleDataAgent",
+    "agent_version": "1.0",
+    "collection_session": "session_20251001_212029",
+    "configuration_hash": "bb15595f"
+  },
+  "system_info": {
+    "platform": "Windows",
+    "platform_version": "10.0.26100",
+    "python_version": "3.13.7",
+    "hostname": "PCS",
+    "architecture": "64bit"
+  },
+  "data_characteristics": {
+    "data_type": "raw",
+    "format": "json",
+    "encoding": "utf-8",
+    "total_items": 1,
+    "data_size_bytes": 106,
+    "data_fingerprint": "5be672d874f70101eaccc7b7490a5adc",
+    "schema_version": "1.0"
+  },
+  "quality_info": {
+    "collection_success_rate": 1.0,
+    "total_requests_made": 0,
+    "data_completeness_score": 0,
+    "validation_passed": null,
+    "quality_checks_performed": "2025-10-01T21:20:29.159056"
+  },
+  "schema_info": {
+    "field_count": 5,
+    "fields": {
+      "name": {
+        "type": "str",
+        "sample_value": "Test Card",
+        "is_required": true
+      },
+      "id": {
+        "type": "int",
+        "sample_value": 99999999,
+        "is_required": false
+      },
+      "elixirCost": {
+        "type": "int",
+        "sample_value": 5,
+        "is_required": true
+      },
+      "rarity": {
+        "type": "str",
+        "sample_value": "legendary",
+        "is_required": true
+      },
+      "maxLevel": {
+        "type": "int",
+        "sample_value": 16,
+        "is_required": false
+      }
+    },
+    "required_fields": [
+      "name",
+      "elixirCost",
+      "rarity"
+    ],
+    "nullable_fields": [
+      "id",
+      "maxLevel"
+    ]
+  },
+  "lineage_info": {
+    "data_source": "api_collection",
+    "processing_stage": "raw",
+    "parent_datasets": null,
+    "collection_method": "automated_agent",
+    "next_processing_steps": [
+      "validation",
+      "storage"
+    ]
+  },
+  "usage_info": {
+    "intended_use": "game_data_analysis",
+    "access_level": "internal",
+    "retention_period": "indefinite",
+    "update_frequency": "on_demand",
+    "last_modified": "2025-10-01T21:20:29.159056"
+  }
+}
